@@ -1,0 +1,45 @@
+// AppPadrao.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "Constantes.h"
+#include "Funcoes.h"
+int main()
+{
+	int opcao;
+	posicaoProduto = 0;
+	posicaoCliente = 0;
+	posicaoVenda = 0;
+	do {
+		exibirMenu();
+		cin >> opcao;
+		switch (opcao) {
+		case CARGA_PRODUTO:
+			posicaoProduto = incluirProduto(listaProduto,posicaoProduto);
+			break;
+		case LISTAR_PRODUTO:
+			exibirProduto(listaProduto, 0, posicaoProduto);
+			break;
+		case EXCLUIR_PRODUTO:
+			posicaoProduto= excluirProduto(listaProduto, posicaoProduto);
+			break;
+		case CARGA_CLIENTE:
+			posicaoCliente = incluirCliente(listaCliente, posicaoCliente);
+			break;
+		case LISTAR_CLIENTE:
+			exibirCliente(listaCliente, 0, posicaoCliente);
+			break;
+		case EXCLUIR_CLIENTE:
+			posicaoCliente = excluirCliente(listaCliente, posicaoCliente);
+			break;
+		case VENDER:
+			incluirVenda();
+			break;
+		case EXIBIR_VENDAS:
+			exibirVendas(0);
+			break;
+		default: break;
+		}		
+	} while (opcao > 0 && opcao < 9);
+	return 0;
+}
