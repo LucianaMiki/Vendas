@@ -1,0 +1,43 @@
+#pragma once
+#define CARGA_PRODUTO  1
+#define LISTAR_PRODUTO  2
+#define EXCLUIR_PRODUTO  3
+
+#define CARGA_CLIENTE  4
+#define LISTAR_CLIENTE  5
+#define EXCLUIR_CLIENTE  6
+
+#define VENDER  7
+#define EXIBIR_VENDAS   8
+
+#define TAMANHO  4 
+#define LINHAS  4 
+#define COLUNAS  4 
+
+char produtos[TAMANHO];
+int posicaoProduto;
+char clientes[TAMANHO];
+int posicaoCliente;
+int vendas[LINHAS][COLUNAS];
+int posicaoVenda;
+
+typedef struct produt {
+	char nome[20];
+	int codigo;
+	float preco;
+};
+
+typedef struct client {
+	char nome[20];
+	int cpf;	
+};
+
+typedef struct venda {
+	produt produto;
+	client cliente;
+	int qtd;
+};
+
+produt listaProduto[TAMANHO];
+client listaCliente[TAMANHO];
+venda listaVenda[TAMANHO];
